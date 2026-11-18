@@ -20,6 +20,23 @@
         }
         <a (click)="logout()" routerLink="/">Sair</a>
       }
+      <!-- Switch de modo claro/escuro: o trilho vira céu de dia ou de noite e a
+           bolinha desliza, trocando o sol pela lua. -->
+      <button type="button" role="switch" class="tema-switch"
+              [class.escuro]="temaService.atual() === 'escuro'"
+              [attr.aria-checked]="temaService.atual() === 'escuro'"
+              aria-label="Modo escuro"
+              [title]="temaService.atual() === 'claro' ? 'Ativar modo escuro' : 'Ativar modo claro'"
+              (click)="temaService.alternar()">
+        <span class="tema-switch__estrelas" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </span>
+        <span class="tema-switch__nuvem" aria-hidden="true"></span>
+        <span class="tema-switch__bolinha" aria-hidden="true">
+          <mat-icon class="icone-sol">light_mode</mat-icon>
+          <mat-icon class="icone-lua">dark_mode</mat-icon>
+        </span>
+      </button>
     </nav>
   </div>
 </header>

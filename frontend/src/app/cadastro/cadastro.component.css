@@ -1,10 +1,10 @@
 /* Geral */
 .container {
-  background: #ffffff; /* Definido para branco */
+  background: var(--cse-surface); /* acompanha o tema */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd; /* Para evitar bordas muito visíveis */
+  border: 1px solid var(--cse-border); /* Para evitar bordas muito visíveis */
 }
 
 h1 {
@@ -18,10 +18,10 @@ h4 {
 
 /* Inputs e selects */
 input, select {
-  background-color: #f9f9f9; /* Fundo mais claro para inputs */
-  color: #333; /* Cor do texto */
+  background-color: var(--cse-input-bg); /* Fundo mais claro para inputs */
+  color: var(--cse-text-muted); /* Cor do texto */
   border-radius: 5px;
-  border: 1px solid #ccc; /* Borda suave */
+  border: 1px solid var(--cse-border); /* Borda suave */
 }
 
 input:focus, select:focus {
@@ -46,10 +46,10 @@ button:hover {
 /* Modal 
 .modal-content {
   background: #ffffff;
-  color: #333;
+  color: var(--cse-text-muted);
   border-radius: 10px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--cse-border);
 }
 
 .modal-header {
@@ -66,7 +66,7 @@ button:hover {
 /* Estilo para labels e texto de aviso */
 label {
   font-weight: bold;
-  color: #333;
+  color: var(--cse-text-muted);
 }
 
 small.text-danger {
@@ -76,14 +76,14 @@ small.text-danger {
 }
 
 .sub-category {
-  background: #eafaf1;
+  background: var(--cse-sub-bg);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 15px;
 }
 
 hr {
-  border: 1px solid #ddd;
+  border: 1px solid var(--cse-border);
   margin-top: 10px;
 }
 

@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { TemaService } from './core/tema.service';
 import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
@@ -28,6 +29,10 @@ export class App {
   public mostrarModalCadastro: boolean = false;
 
   private cookieService: CookieService;
+
+  /** Modo claro/escuro (botão no cabeçalho). */
+  readonly temaService = inject(TemaService);
+
   constructor(authService: AuthService, logoutService: LogoutService, cookieService: CookieService, pacienteService: PacienteService, router: Router) {
     this.authService = authService;
     this.logoutService = logoutService;

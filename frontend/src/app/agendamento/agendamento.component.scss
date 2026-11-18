@@ -8,7 +8,7 @@
 mat-card {
   max-width: 800px;
   margin: auto;
-  background: #fafafa;
+  background: var(--mat-sys-surface-container-low);
   border-radius: 8px;
 
   mat-card-title {
@@ -33,7 +33,7 @@ mat-card {
 
         .mat-form-field-label {
           top: -6px;
-          background: white;
+          background: var(--mat-sys-surface);
           padding: 0 4px;
           z-index: 1;
         }
@@ -57,7 +57,7 @@ mat-card {
 .list-card {
   max-width: 1000px;
   margin: auto;
-  background: #fafafa;
+  background: var(--mat-sys-surface-container-low);
   border-radius: 8px;
 
   mat-card-title {
@@ -81,18 +81,18 @@ mat-card {
       }
 
       th {
-        background: #e0e0e0;
+        background: var(--mat-sys-surface-container-highest);
       }
 
       tr:nth-child(even) {
-        background: #f5f5f5;
+        background: var(--mat-sys-surface-container);
       }
     }
 
     .no-data {
       padding: 24px;
       text-align: center;
-      color: #666;
+      color: var(--mat-sys-on-surface-variant);
       font-style: italic;
     }
   }
@@ -120,7 +120,7 @@ mat-card {
   align-items: center;
   margin-bottom: 24px;
   padding: 16px;
-  background-color: #f0f0f0;
+  background-color: var(--mat-sys-surface-container);
   border-radius: 8px;
 
   .filter-field {
@@ -137,7 +137,7 @@ mat-card {
     text-align: center;
     padding: 20px;
     font-style: italic;
-    color: grey;
+    color: var(--mat-sys-on-surface-variant);
 }
 
 @media (max-width: 960px) {

@@ -2,19 +2,19 @@
   max-width: 500px;
   margin: 2rem auto;
   padding: 2rem;
-  border: 1px solid #dee2e6;
+  border: 1px solid var(--cse-border);
   border-radius: 0.75rem;
-  background-color: #ffffff;
+  background-color: var(--cse-surface);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .file-drop-area {
-  border: 2px dashed #004646;
+  border: 2px dashed var(--cse-text);
   border-radius: 0.75rem;
   padding: 2rem;
   text-align: center;
-  color: #495057;
+  color: var(--cse-text-muted);
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
   user-select: none;
@@ -22,8 +22,8 @@
 }
 
 .file-drop-area:hover {
-  background-color: #e9f2ff;
-  border-color: #004646;
+  background-color: var(--cse-sub-bg);
+  border-color: var(--cse-text);
 }
 
 .btn-upload {
@@ -52,6 +52,6 @@
   display: block;
   font-weight: 600;
   font-size: 0.95rem;
-  color: #343a40;
+  color: var(--cse-text-muted);
   margin-bottom: 0.5rem;
 }

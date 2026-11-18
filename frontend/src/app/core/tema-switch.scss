@@ -1,0 +1,118 @@
+// Switch animado de modo claro/escuro (botão no cabeçalho, ver app.html).
+// Fica nos estilos globais para não estourar o limite de tamanho do app.scss.
+/* ====== Switch de modo claro/escuro ====== */
+.tema-switch {
+  --dur: 0.5s;
+  --mola: cubic-bezier(0.68, -0.55, 0.27, 1.55); /* passa do ponto e volta */
+  position: relative;
+  flex-shrink: 0;
+  width: 68px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  cursor: pointer;
+  /* céu de dia */
+  background: linear-gradient(135deg, #8fd8f5 0%, #50BFAD 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(80, 191, 173, 0.3);
+  transition: background var(--dur) ease, box-shadow var(--dur) ease, transform 0.15s ease;
+}
+.tema-switch:hover { transform: scale(1.06); }
+.tema-switch:active { transform: scale(0.96); }
+.tema-switch:focus-visible {
+  outline: 3px solid #50BFAD;
+  outline-offset: 3px;
+}
+/* céu de noite */
+.tema-switch.escuro {
+  background: linear-gradient(135deg, #1b2a4a 0%, #0b1220 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(80, 120, 191, 0.25);
+}
+
+/* bolinha que desliza: sol (dia) → lua (noite) */
+.tema-switch__bolinha {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffd54a;
+  box-shadow: 0 0 10px 2px rgba(255, 213, 74, 0.7);
+  transition: transform var(--dur) var(--mola), background var(--dur) ease, box-shadow var(--dur) ease;
+  z-index: 2;
+}
+.tema-switch.escuro .tema-switch__bolinha {
+  transform: translateX(34px) rotate(360deg);
+  background: #e8ecf5;
+  box-shadow: 0 0 10px 2px rgba(200, 215, 255, 0.45);
+}
+.tema-switch__bolinha mat-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  transition: opacity var(--dur) ease, transform var(--dur) ease;
+}
+.icone-sol { color: #e08a00; }
+.icone-lua { color: #3b4a6b; opacity: 0; transform: scale(0.3) rotate(-90deg); }
+.tema-switch.escuro .icone-sol { opacity: 0; transform: scale(0.3) rotate(90deg); }
+.tema-switch.escuro .icone-lua { opacity: 1; transform: none; }
+
+/* nuvem: aparece de dia, sai pela direita à noite */
+.tema-switch__nuvem {
+  position: absolute;
+  right: 9px;
+  top: 15px;
+  width: 18px;
+  height: 7px;
+  border-radius: 6px;
+  background: #fff;
+  opacity: 0.9;
+  transition: transform var(--dur) ease, opacity var(--dur) ease;
+}
+.tema-switch__nuvem::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #fff;
+}
+.tema-switch.escuro .tema-switch__nuvem {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+/* estrelas: só à noite, piscando */
+.tema-switch__estrelas i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity var(--dur) ease, transform var(--dur) var(--mola);
+}
+.tema-switch__estrelas i:nth-child(1) { left: 12px; top: 8px; }
+.tema-switch__estrelas i:nth-child(2) { left: 22px; top: 19px; width: 2px; height: 2px; }
+.tema-switch__estrelas i:nth-child(3) { left: 8px;  top: 24px; width: 2px; height: 2px; }
+.tema-switch.escuro .tema-switch__estrelas i {
+  opacity: 1;
+  transform: scale(1);
+  animation: piscar 2.4s ease-in-out infinite;
+}
+.tema-switch.escuro .tema-switch__estrelas i:nth-child(2) { animation-delay: 0.8s; }
+.tema-switch.escuro .tema-switch__estrelas i:nth-child(3) { animation-delay: 1.6s; }
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
